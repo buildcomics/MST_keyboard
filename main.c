@@ -96,6 +96,7 @@ void hid_task(void) {
 // Return zero will cause the stack to STALL request
 uint16_t tud_hid_get_report_cb(uint8_t report_id, hid_report_type_t report_type, uint8_t *buffer, uint16_t reqlen) {
     // TODO not Implemented
+    printf("DEBUG: tud_hid_get_report_cb triggered\n");
     (void) report_id;
     (void) report_type;
     (void) buffer;
@@ -108,6 +109,16 @@ uint16_t tud_hid_get_report_cb(uint8_t report_id, hid_report_type_t report_type,
 // received data on OUT endpoint ( Report ID = 0, Type = 0 )
 void tud_hid_set_report_cb(uint8_t report_id, hid_report_type_t report_type, uint8_t const *buffer, uint16_t bufsize) {
     // TODO set LED based on CAPLOCK, NUMLOCK etc...
+    printf("DEBUG: tud_hid_set_report_cb triggered\n");
+    printf("DEBUG: report_id: %X\n", report_id);
+    printf("DEBUG: report_type: %X\n", report_type);
+    printf("DEBUG: bufsize: %d\n", bufsize);
+
+    printf("DEBUG: buffer content:\n");
+    for (int i = 0; i < bufsize; i++) {
+        printf("%02X ", buffer[i]);
+    }
+    printf(" - End \n");
     (void) report_id;
     (void) report_type;
     (void) buffer;
@@ -124,25 +135,15 @@ void btn_callback(uint gpio, uint32_t events) {
         gpio_put(LED_1_RED_GPIO, 1); //Turn on the LED
         /*------------- Keyboard -------------*/
         if (tud_hid_ready()) {
-            // use to avoid send multiple consecutive zero report for keyboard
-            static bool has_key = false;
-
-            static bool toggle = false;
-            if (toggle = !toggle) {
-                uint8_t keycode[6] = {0};
-                keycode[0] = HID_KEY_A;
-
-                tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
-
-                has_key = true;
-            } else {
-                // send empty key report if previously has key pressed
-                if (has_key) tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
-                has_key = false;
-            }
+            uint8_t keycode[6] = {0};
+            keycode[0] = HID_KEY_A;
+            tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
         }
     }
     else {
         gpio_put(LED_1_RED_GPIO, 0); //Turn off the LED
+        if (tud_hid_ready()) {
+            tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
+        }
     }
 }

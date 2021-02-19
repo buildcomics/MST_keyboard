@@ -69,7 +69,11 @@ uint8_t const *tud_descriptor_device_cb(void) {
 //--------------------------------------------------------------------+
 // HID Report Descriptor
 //--------------------------------------------------------------------+
-
+//TODO: setup HID report for telephony page device: https://github.com/hathach/tinyusb/blob/master/src/class/hid/hid_device.h
+//Use defines from https://github.com/hathach/tinyusb/blob/master/src/class/hid/hid.h
+// try logging: https://github.com/hathach/tinyusb/blob/master/docs/getting_started.md
+// Make sure to report HOOK_SWITCH_HID and HOOK_OFF_LED
+// Ask help in the discussion for telephony setup?https://github.com/hathach/tinyusb/discussions
 uint8_t const desc_hid_report[] =
         {
                 TUD_HID_REPORT_DESC_KEYBOARD(HID_REPORT_ID(REPORT_ID_KEYBOARD))
