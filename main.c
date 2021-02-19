@@ -22,7 +22,11 @@ void hid_task(void);
 
 int main() {
     stdio_init_all(); //Initialize debug interface
-    printf("DEBUG: starting up\n");
+    printf("DEBUG: starting up buildcomics HID device...\n");
+
+    board_init();
+    tusb_init();
+    printf("DEBUG: HID Device initialized\n");
 
     //Setup GPIO with callback:
     gpio_pull_up(BTN_1_GPIO); //Enable pullup
