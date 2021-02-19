@@ -87,25 +87,7 @@ void hid_task(void) {
         tud_remote_wakeup();
     }
 
-    /*------------- Keyboard -------------*/
-    if (tud_hid_ready()) {
-        // use to avoid send multiple consecutive zero report for keyboard
-        static bool has_key = false;
 
-        static bool toggle = false;
-        if (toggle = !toggle) {
-            uint8_t keycode[6] = {0};
-            keycode[0] = HID_KEY_A;
-
-            tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
-
-            has_key = true;
-        } else {
-            // send empty key report if previously has key pressed
-            if (has_key) tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
-            has_key = false;
-        }
-    }
 }
 
 
@@ -140,6 +122,25 @@ void btn_callback(uint gpio, uint32_t events) {
 
     if (events == GPIO_IRQ_EDGE_FALL) {
         gpio_put(LED_1_RED_GPIO, 1); //Turn on the LED
+        /*------------- Keyboard -------------*/
+        if (tud_hid_ready()) {
+            // use to avoid send multiple consecutive zero report for keyboard
+            static bool has_key = false;
+
+            static bool toggle = false;
+            if (toggle = !toggle) {
+                uint8_t keycode[6] = {0};
+                keycode[0] = HID_KEY_A;
+
+                tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
+
+                has_key = true;
+            } else {
+                // send empty key report if previously has key pressed
+                if (has_key) tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
+                has_key = false;
+            }
+        }
     }
     else {
         gpio_put(LED_1_RED_GPIO, 0); //Turn off the LED
