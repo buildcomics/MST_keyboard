@@ -8,10 +8,11 @@ pico_sdk_init()
 
 add_executable(main
         main.c
+        usb_descriptors.c
         )
 
 pico_enable_stdio_uart(main 1)
 
 pico_add_extra_outputs(main)
 
-target_link_libraries(main pico_stdlib)
+target_link_libraries(main pico_stdlib tinyusb_device tinyusb_board)

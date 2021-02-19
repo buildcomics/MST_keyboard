@@ -84,19 +84,6 @@ void hid_task(void) {
         tud_remote_wakeup();
     }
 
-    /*------------- Mouse -------------*/
-    if (tud_hid_ready()) {
-        if (btn) {
-            int8_t const delta = 5;
-
-            // no button, right + down, no scroll pan
-            tud_hid_mouse_report(REPORT_ID_MOUSE, 0x00, delta, delta, 0, 0);
-
-            // delay a bit before attempt to send keyboard report
-            board_delay(10);
-        }
-    }
-
     /*------------- Keyboard -------------*/
     if (tud_hid_ready()) {
         // use to avoid send multiple consecutive zero report for keyboard
