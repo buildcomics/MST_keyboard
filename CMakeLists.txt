@@ -15,4 +15,6 @@ pico_enable_stdio_uart(main 1)
 
 pico_add_extra_outputs(main)
 
+target_include_directories(main PRIVATE ${CMAKE_CURRENT_LIST_DIR})
+
 target_link_libraries(main pico_stdlib tinyusb_device tinyusb_board)

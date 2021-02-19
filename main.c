@@ -43,7 +43,6 @@ int main() {
 // Invoked when device is mounted
 void tud_mount_cb(void) {
     printf("DEBUG: Mounted\n");
-    blink_interval_ms = BLINK_MOUNTED;
 }
 
 // Invoked when device is unmounted
