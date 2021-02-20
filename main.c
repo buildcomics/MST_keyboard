@@ -11,6 +11,7 @@
 #include "usb_descriptors.h"
 
 #define BTN_1_GPIO 9
+#define BTN_2_GPIO 4
 #define LED_1_RED_GPIO 8
 
 #define EVENT_MASK_LOW 0x1
@@ -29,8 +30,10 @@ int main() {
     printf("DEBUG: HID Device initialized\n");
 
     //Setup GPIO with callback:
-    gpio_pull_up(BTN_1_GPIO); //Enable pullup
+    gpio_pull_up(BTN_1_GPIO); //Enable pullup on button 1 IO
+    gpio_pull_up(BTN_2_GPIO); //Enable pullup on button 2 IO
     gpio_set_irq_enabled_with_callback(BTN_1_GPIO, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &btn_callback); //Set IRQ interrupt when switch has rising edge
+    gpio_set_irq_enabled_with_callback(BTN_2_GPIO, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &btn_callback); //Set IRQ interrupt when switch has rising edge
 
     //setup LED gpio
     gpio_init(LED_1_RED_GPIO);
@@ -131,13 +134,20 @@ void btn_callback(uint gpio, uint32_t events) {
     printf("DEBUG: gpio: %d\n", gpio);
     printf("DEBUG: events: %d\n", events);
 
-    if (events == GPIO_IRQ_EDGE_FALL) {
+    if (events == GPIO_IRQ_EDGE_FALL && gpio == BTN_1_GPIO) {
+        printf("DEBUG: Falling Edge on Button 1\n");
         gpio_put(LED_1_RED_GPIO, 1); //Turn on the LED
         /*------------- Keyboard -------------*/
         if (tud_hid_ready()) {
             uint8_t keycode[6] = {0};
             keycode[0] = HID_KEY_A;
             tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
+        }
+    }
+    else if (events == GPIO_IRQ_EDGE_FALL && gpio == BTN_2_GPIO) {
+        if (tud_hid_ready()) {
+            printf("DEBUG: Falling Edge on Button 2\n");
+            tud_hid_mouse_report(REPORT_ID_MOUSE, 0x00, 5, 5, 0, 0); //move down and right with delta 5
         }
     }
     else {
