@@ -147,7 +147,7 @@ void btn_callback(uint gpio, uint32_t events) {
     else if (events == GPIO_IRQ_EDGE_FALL && gpio == BTN_2_GPIO) {
         if (tud_hid_ready()) {
             printf("DEBUG: Falling Edge on Button 2\n");
-            tud_hid_mouse_report(REPORT_ID_MOUSE, 0x00, 5, 5, 0, 0); //move down and right with delta 5
+            tud_hid_mouse_report(REPORT_ID_TELEPHONE, 0x00, 5, 5, 0, 0); //move down and right with delta 5
         }
     }
     else {
