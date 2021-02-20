@@ -1,0 +1,49 @@
+# 3D Printer Control MKII
+This is the GitHub repository for the project: https://buildcomics.com/ (TO Be Determined) \
+You will also find the "instructions"  there!
+
+## Models
+Find all the models for the keyboard here: (TODO)
+
+## Main Code
+The main code is based on Tinyusb: https://github.com/hathach/tinyusb \
+The device should mimic a telephony HID device, as specified by Microsoft teams here: https://docs.microsoft.com/en-us/skypeforbusiness/certification/test-spec \
+The actual document with the specs is in this zip file: https://download.microsoft.com/download/9/f/6/9f63c68d-817b-40ff-935c-9dd8b74cb07d/V4%20Release.zip  \
+file name: Teams_DevicesGeneralSpecification_4_0_final.pdf
+
+## Wiring
+TODO
+
+## Raspberry Pi Pico
+Assuming you have the raspberry pi pico c SDK installed(https://github.com/raspberrypi/pico-sdk) \
+The following (standard) commands will create "main.uf2" that can be copied onto the raspberry pi in bootsel mode:
+1. git clone git@github.com:buildcomics/mst_keyboard.git
+2. cd mst_keyboard
+3. mkdir build
+4. cd build
+5. cmake ..
+6. make
+7. Now press the button on your raspbery pi pico, connect it and copy the main.uf2 to the pico that should show up ass a mass storage device
+
+## License
+MIT License
+
+Copyright (c) 2021 buildcomics
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
