@@ -83,37 +83,37 @@ uint8_t const desc_hid_report[] =
             HID_REPORT_ID(REPORT_ID_KEYBOARD) \
             /* 8 bits Modifier Keys (Shfit, Control, Alt) */ \
             HID_USAGE_PAGE ( HID_USAGE_PAGE_KEYBOARD )                     ,\
-            HID_USAGE_MIN    ( 224                                    )  ,\
-            HID_USAGE_MAX    ( 231                                    )  ,\
-            HID_LOGICAL_MIN  ( 0                                      )  ,\
-            HID_LOGICAL_MAX  ( 1                                      )  ,\
-            HID_REPORT_COUNT ( 8                                      )  ,\
-            HID_REPORT_SIZE  ( 1                                      )  ,\
-            HID_INPUT        ( HID_DATA | HID_VARIABLE | HID_ABSOLUTE )  ,\
-            /* 8 bit reserved */ \
-            HID_REPORT_COUNT ( 1                                      )  ,\
-            HID_REPORT_SIZE  ( 8                                      )  ,\
-            HID_INPUT        ( HID_CONSTANT                           )  ,\
+                HID_USAGE_MIN    ( 224                                    )  ,\
+                HID_USAGE_MAX    ( 231                                    )  ,\
+                HID_LOGICAL_MIN  ( 0                                      )  ,\
+                HID_LOGICAL_MAX  ( 1                                      )  ,\
+                HID_REPORT_COUNT ( 8                                      )  ,\
+                HID_REPORT_SIZE  ( 1                                      )  ,\
+                HID_INPUT        ( HID_DATA | HID_VARIABLE | HID_ABSOLUTE )  ,\
+                /* 8 bit reserved */ \
+                HID_REPORT_COUNT ( 1                                      )  ,\
+                HID_REPORT_SIZE  ( 8                                      )  ,\
+                HID_INPUT        ( HID_CONSTANT                           )  ,\
             /* 6-byte Keycodes */ \
             HID_USAGE_PAGE ( HID_USAGE_PAGE_KEYBOARD )                     ,\
-            HID_USAGE_MIN    ( 0                                   )     ,\
-            HID_USAGE_MAX    ( 255                                 )     ,\
-            HID_LOGICAL_MIN  ( 0                                   )     ,\
-            HID_LOGICAL_MAX  ( 255                                 )     ,\
-            HID_REPORT_COUNT ( 6                                   )     ,\
-            HID_REPORT_SIZE  ( 8                                   )     ,\
-            HID_INPUT        ( HID_DATA | HID_ARRAY | HID_ABSOLUTE )     ,\
+                HID_USAGE_MIN    ( 0                                   )     ,\
+                HID_USAGE_MAX    ( 255                                 )     ,\
+                HID_LOGICAL_MIN  ( 0                                   )     ,\
+                HID_LOGICAL_MAX  ( 255                                 )     ,\
+                HID_REPORT_COUNT ( 6                                   )     ,\
+                HID_REPORT_SIZE  ( 8                                   )     ,\
+                HID_INPUT        ( HID_DATA | HID_ARRAY | HID_ABSOLUTE )     ,\
             /* 5-bit LED Indicator Kana | Compose | ScrollLock | CapsLock | NumLock */ \
             HID_USAGE_PAGE  ( HID_USAGE_PAGE_LED                   )       ,\
-            HID_USAGE_MIN    ( 1                                       ) ,\
-            HID_USAGE_MAX    ( 5                                       ) ,\
-            HID_REPORT_COUNT ( 5                                       ) ,\
-            HID_REPORT_SIZE  ( 1                                       ) ,\
-            HID_OUTPUT       ( HID_DATA | HID_VARIABLE | HID_ABSOLUTE  ) ,\
-            /* led padding */ \
-            HID_REPORT_COUNT ( 1                                       ) ,\
-            HID_REPORT_SIZE  ( 3                                       ) ,\
-            HID_OUTPUT       ( HID_CONSTANT                            ) ,\
+                HID_USAGE_MIN    ( 1                                       ) ,\
+                HID_USAGE_MAX    ( 5                                       ) ,\
+                HID_REPORT_COUNT ( 5                                       ) ,\
+                HID_REPORT_SIZE  ( 1                                       ) ,\
+                HID_OUTPUT       ( HID_DATA | HID_VARIABLE | HID_ABSOLUTE  ) ,\
+                /* led padding */ \
+                HID_REPORT_COUNT ( 1                                       ) ,\
+                HID_REPORT_SIZE  ( 3                                       ) ,\
+                HID_OUTPUT       ( HID_CONSTANT                            ) ,\
             HID_COLLECTION_END \
         };
 
