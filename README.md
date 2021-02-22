@@ -10,6 +10,14 @@ The main code is based on Tinyusb: https://github.com/hathach/tinyusb \
 The device should mimic a telephony HID device, as specified by Microsoft teams here: https://docs.microsoft.com/en-us/skypeforbusiness/certification/test-spec \
 The actual document with the specs is in this zip file: https://download.microsoft.com/download/9/f/6/9f63c68d-817b-40ff-935c-9dd8b74cb07d/V4%20Release.zip  \
 file name: Teams_DevicesGeneralSpecification_4_0_final.pdf
+\
+also interesting, the SkypeforBusiness_CallDisplaySpecification_3_0_Final.pdf has custom HID usage pages for display setup. This could be more usefull to make a busylight of. \ I'm planning on getting my USB busylight from the office to steal it's HID Descriptors and see what they do.
+
+## Testing
+Command to test HID descriptor of file: \
+`sudo usbhid-dump -a 1:58 | grep -v : | xxd -r  -p | hidrd-convert -o spec`
+\
+using the hidrd tool from: https://github.com/DIGImend/hidrd
 
 ## Wiring
 TODO

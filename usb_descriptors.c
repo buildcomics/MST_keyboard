@@ -106,7 +106,7 @@ uint8_t const desc_hid_report[] =
                    HID_USAGE_PAGE  ( HID_USAGE_PAGE_LED                   )       , /*Attemptint to get led page until 24 that includes the telephony ones*/ \
                        HID_USAGE_MIN    ( 1                                       ) ,\
                        HID_USAGE_MAX    ( 24                                      ) ,\
-                       HID_REPORT_COUNT ( 24                                      ) ,\
+                       HID_REPORT_COUNT ( 5                                       ) ,\
                        HID_REPORT_SIZE  ( 1                                       ) ,\
                        HID_OUTPUT       ( HID_DATA | HID_VARIABLE | HID_ABSOLUTE  ) ,\
                        /* led padding */ \
@@ -115,11 +115,11 @@ uint8_t const desc_hid_report[] =
                        HID_OUTPUT       ( HID_CONSTANT                            ) ,\
             HID_COLLECTION_END                                                      ,\
             HID_USAGE_PAGE ( HID_USAGE_PAGE_TELEPHONY      )                   , /*Set telephony page */ \
-            HID_USAGE      ( HID_USAGE_DESKTOP_MOUSE     )                   ,   /*TODO */ \
+            HID_USAGE      ( 0x01     )                   ,   /*trying 0x01 =  Phone*/ \
             HID_COLLECTION ( HID_COLLECTION_APPLICATION  )                   ,   /*TODO */ \
                 /* Report ID if any */\
                 HID_REPORT_ID(REPORT_ID_TELEPHONE)                               /* Set Telephone ID */ \
-                HID_USAGE      ( HID_USAGE_DESKTOP_POINTER )                   ,\
+                HID_USAGE      ( 0x01 )                   ,/*Trying 0x01 = Phone */ \                    
                 HID_COLLECTION ( HID_COLLECTION_PHYSICAL   )                   ,\
                   HID_USAGE_PAGE  ( HID_USAGE_PAGE_BUTTON  )                   ,\
                     HID_USAGE_MIN   ( 1                                      ) ,\
