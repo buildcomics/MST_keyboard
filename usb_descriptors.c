@@ -260,7 +260,8 @@ uint8_t const desc_hid_report[] =
             0x75, 0x08,                   /* REPORT_SIZE (8)*/ \
             0x09, 0x65,                   /* USAGE (OC Version)*/ \
             0xB1, 0x02,                   /* FEATURE (Data, Variable, Absolute)*/ \
-            0xc0                         /* 0xc0 // END_COLLECTION*/ 
+            0xc0,                         /* 0xc0 // END_COLLECTION*/  \
+            0xc0                         /* 0xc0 // END_COLLECTION*/
         };
 
 //            HID_USAGE_PAGE ( 0xFF99      )                   , /*Set vendor extension page */ \
