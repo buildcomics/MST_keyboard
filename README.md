@@ -13,6 +13,16 @@ file name: Teams_DevicesGeneralSpecification_4_0_final.pdf
 \
 also interesting, the SkypeforBusiness_CallDisplaySpecification_3_0_Final.pdf has custom HID usage pages for display setup. This could be more usefull to make a busylight of. \ I'm planning on getting my USB busylight from the office to steal it's HID Descriptors and see what they do.
 
+More usefull explanation here: https://eleccelerator.com/tutorial-about-usb-hid-report-descriptors/
+
+\
+
+And background spec: https://www.usb.org/hid
+
+\
+
+And a more readable explanation of this: https://docs.microsoft.com/en-us/windows-hardware/drivers/hid/hid-usages
+
 ## Testing
 Command to test HID descriptor of file: \
 `sudo usbhid-dump -a 1:58 | grep -v : | xxd -r  -p | hidrd-convert -o spec`

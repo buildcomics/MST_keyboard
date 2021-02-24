@@ -27,7 +27,7 @@
 
 enum {
     REPORT_ID_KEYBOARD = 1,
-    REPORT_ID_TELEPHONE
+    REPORT_ID_DISPLAY = 0x11
 };
 
 #endif /* USB_DESCRIPTORS_H_ */
