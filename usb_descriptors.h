@@ -26,8 +26,7 @@
 #define USB_DESCRIPTORS_H_
 
 enum {
-    REPORT_ID_KEYBOARD = 1,
-    REPORT_ID_DISPLAY = 0x11
+    REPORT_ID_KEYBOARD = 0x10
 };
 
 #endif /* USB_DESCRIPTORS_H_ */
