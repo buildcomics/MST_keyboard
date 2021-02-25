@@ -105,7 +105,7 @@ uint8_t const desc_hid_report[] =
                         HID_INPUT        ( HID_DATA | HID_ARRAY | HID_ABSOLUTE )     ,\
                    HID_USAGE_PAGE  ( HID_USAGE_PAGE_LED                   )       , /*Attemptint to get led page until 24 that includes the telephony ones*/ \
                        HID_USAGE_MIN    ( 1                                       ) ,\
-                       HID_USAGE_MAX    ( 24                                      ) ,\
+                       HID_USAGE_MAX    ( 5                                       ) ,\
                        HID_REPORT_COUNT ( 5                                       ) ,\
                        HID_REPORT_SIZE  ( 1                                       ) ,\
                        HID_OUTPUT       ( HID_DATA | HID_VARIABLE | HID_ABSOLUTE  ) ,\
@@ -172,6 +172,7 @@ uint8_t const desc_hid_report[] =
             0x95, 0x01,       /* REPORT_COUNT (1) */ \
             0x75, 0x04,       /* REPORT_SIZE (4) */ \
             0x91, 0x02,       /* OUTPUT (Data,Var,Abs) */ \
+            0x95, 0x01,       /* REPORT_COUNT (1) */ \
             0x75, 0x01,       /* REPORT_SIZE (1) */ \
             0x91, 0x03,       /* OUTPUT (Const,Var,Abs)  Pading 1*/ \
             0xc0,             /* END_COLLECTION */ \
@@ -190,7 +191,7 @@ uint8_t const desc_hid_report[] =
             0x75, 0x04,       /* REPORT_SIZE (4) */ \
             0x91, 0x03,       /* OUTPUT (Const,Var,Abs) Pading 4 */ \
             0x95, 0x01,       /* REPORT_COUNT (1) */ \
-            0x75, 0x05,       /* REPORT_SIZE (7) */ \
+            0x75, 0x07,       /* REPORT_SIZE (7) */ \
             0x91, 0x03,       /* OUTPUT (Const,Var,Abs) Pading 7 */ \
             0x0A, 0x22, 0xFF, /* USAGE (Text String Followed) */ \
             0x25, 0x01,       /* Logical Maximum (1), */ \
@@ -227,6 +228,7 @@ uint8_t const desc_hid_report[] =
             0x95, 0x01,       /* REPORT_COUNT (1) */ \
             0x75, 0x04,       /* REPORT_SIZE (4) */ \
             0x91, 0x02,       /* OUTPUT (Data,Var,Abs) */ \
+            0x95, 0x01,       /* REPORT_COUNT (1) */ \
             0x75, 0x04,       /* REPORT_SIZE (4) */ \
             0x91, 0x03,       /* OUTPUT (Const,Var,Abs) Pading 4 */ \
             0x0A, 0x1A, 0xFF, /* USAGE (Call Forward Icon) */ \
@@ -243,6 +245,7 @@ uint8_t const desc_hid_report[] =
             0x25, 0x01,       /* LOGICAL_MAXIMUM (1) */ \
             0x0A, 0x1C, 0xFF, /* USAGE (Mute Icon) */ \
             0x91, 0x26,       /* OUTPUT (Data, Variable, Relative, No Preferred) 2 bitsd --> output */ \
+            0x95, 0x01,       /* REPORT_COUNT (1) */ \
             0x75, 0x02,       /* REPORT_SIZE (2) */ \
             0x91, 0x03,       /* OUTPUT (Const,Var,Abs) //Pading 2 */ \
             0xc0,             /* END_COLLECTION */ \
