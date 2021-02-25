@@ -121,7 +121,7 @@ uint8_t const desc_hid_report[] =
             /* ------------ Vendor Extension ------------------------*/ \
             0x0A, 0x00, 0xFF, /* USAGE (Vendor Extension) */ \
             0xa1, 0x02, /* COLLECTION (Logical) */ \
-            0x85, 0x11, /* Report ID (11) */ \
+            0x85, 0x02, /* Report ID (02) */ \
             0x15, 0x00, /* Logical Minimum (0), */ \
             0x27, 0xFF, 0xFF, 0x00, 0x00, /* Logical Maximum (65535) */ \
             0x95, 0x01, /*  REPORT_COUNT (1) */ \
@@ -137,7 +137,7 @@ uint8_t const desc_hid_report[] =
             /* ------------ Display Attributes ------------------------*/ \
             0x09, 0x20, /* USAGE (Display Attributes) */ \
             0xa1, 0x02, /* COLLECTION (Logical) */ \
-            0x85, 0x12, /* Report ID (12) */
+            0x85, 0x03, /* Report ID (03) */
             0x09, 0x35, /*USAGE (Rows) */ \
             0x09, 0x36, /*USAGE (Columns) */ \
             0x15, 0x00, /*Logical Minimum (0), */ \
@@ -158,7 +158,7 @@ uint8_t const desc_hid_report[] =
             /* ------------ Display Control Report ------------------------*/ \
             0x09, 0x24,       /* USAGE (Display Control) */ \
             0xA1, 0x02,       /* COLLECTION(Logical) */ \
-            0x85, 0x13,       /* Report ID (13) */ \
+            0x85, 0x04,       /* Report ID (04) */ \
             0x09, 0x26,       /* USAGE (Enable Display) */ \
             0x09, 0x25,       /* USAGE (Clear Display) */ \
             0x0A, 0x10, 0xFF, /* USAGE (Back Light) */ \
@@ -178,7 +178,7 @@ uint8_t const desc_hid_report[] =
             /* ------------ Character Attribute Report ------------------------*/ \
             0x09, 0x48,       /* USAGE (Character Attributes) */ \
             0xA1, 0x02,       /* COLLECTION(Logical) */ \
-            0x85, 0x14,       /* Report ID (14) */ \
+            0x85, 0x05,       /* Report ID (05) */ \
             0x19, 0x81,       /* USAGE_MINIMUM (Local User Name) */ \
             0x29, 0x8A,       /* USAGE_MAXIMUM (Number) */ \
             0x15, 0x01,       /* LOGICAL_MINIMUM (1) */ \
@@ -201,7 +201,7 @@ uint8_t const desc_hid_report[] =
             /* ------------ Character Report ------------------------*/ \
             0x09, 0x2B,                   /* USAGE (Character Report) */ \
             0xA1, 0x02,                   /* COLLECTION(Logical) */ \
-            0x85, 0x15,                   /* Report ID (15) */ \
+            0x85, 0x06,                   /* Report ID (06) */ \
             0x95, 0x01,                   /* REPORT_COUNT (1) */ \
             0x75, 0x07,                   /* REPORT_SIZE (7) */ \
             0x91, 0x03,                   /* OUTPUT (Const,Var,Abs)            //Pading 7 */ \
@@ -220,7 +220,7 @@ uint8_t const desc_hid_report[] =
             /*--------- Icons Report ------------------------------------ */ \
             0x0A, 0x17, 0xFF, /* USAGE (Icons Control) */ \
             0xA1, 0x02,       /* COLLECTION(Logical) */ \
-            0x85, 0x16,       /* Report ID (16) */ \
+            0x85, 0x07,       /* Report ID (07) */ \
             0x0A, 0x18, 0xFF, /* USAGE (Presence Icon) */ \
             0x15, 0x00,       /* Logical Minimum (0), */ \
             0x25, 0x0F,       /* Logical Maximum (15), */ \
@@ -248,7 +248,7 @@ uint8_t const desc_hid_report[] =
             0xc0,             /* END_COLLECTION */ \
             /*--------- Display Setup Info Report ------------------------------------ */ \
             0xA1, 0x02,                   /* COLLECTION(Logical)*/ \
-            0x85, 0x17,                   /* Report ID (17)*/ \
+            0x85, 0x08,                   /* Report ID (08)*/ \
             0x15, 0x00,                   /* Logical Minimum (0),*/ \
             0x27, 0xFF, 0xFF, 0x00, 0x00, /*Logical Maximum (65535)*/ \
             0x95, 0x01,                   /* REPORT_COUNT (1)*/ \
