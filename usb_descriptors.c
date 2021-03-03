@@ -49,7 +49,7 @@ tusb_desc_device_t const desc_device =
                 .bDeviceProtocol    = 0x00,
                 .bMaxPacketSize0    = CFG_TUD_ENDPOINT0_SIZE,
 
-                .idVendor           = 0x045E, //Set to microsoft (not configurable)
+                .idVendor           = 0x045e,
                 .idProduct          = USB_PID,
                 .bcdDevice          = 0x0100,
 
@@ -74,9 +74,8 @@ uint8_t const *tud_descriptor_device_cb(void) {
 // try logging: https://github.com/hathach/tinyusb/blob/master/docs/getting_started.md
 // Make sure to report HOOK_SWITCH_HID and HOOK_OFF_LED
 // Ask help in the discussion for telephony setup?https://github.com/hathach/tinyusb/discussions
-uint8_t const desc_hid_report[] =
-        {
-            HID_USAGE_PAGE ( HID_USAGE_PAGE_DESKTOP     )                    ,\
+
+//HID_USAGE_PAGE ( HID_USAGE_PAGE_DESKTOP     )                    ,\
             HID_USAGE      ( HID_USAGE_DESKTOP_KEYBOARD )                    ,\
             HID_COLLECTION ( HID_COLLECTION_APPLICATION )                    ,\
                 /* Report ID if any */\
@@ -114,6 +113,9 @@ uint8_t const desc_hid_report[] =
                        HID_REPORT_SIZE  ( 3                                       ) ,\
                        HID_OUTPUT       ( HID_CONSTANT                            ) ,\
             HID_COLLECTION_END                                                      ,\
+
+uint8_t const desc_hid_report[] =
+        {
             /*-------- LCD display ----------------------------------*/ \
             0x06, 0x99, 0xFF, /* USAGE_PAGE (Custom UC Display)  */ \
             0x09, 0x01,  /* USAGE (UC_DISPLAY) */ \
@@ -121,7 +123,7 @@ uint8_t const desc_hid_report[] =
             /* ------------ Vendor Extension ------------------------*/ \
             0x0A, 0x00, 0xFF, /* USAGE (Vendor Extension) */ \
             0xa1, 0x02, /* COLLECTION (Logical) */ \
-            0x85, 0x02, /* Report ID (02) */ \
+            0x85, 0x11, /* Report ID (11) */ \
             0x15, 0x00, /* Logical Minimum (0), */ \
             0x27, 0xFF, 0xFF, 0x00, 0x00, /* Logical Maximum (65535) */ \
             0x95, 0x01, /*  REPORT_COUNT (1) */ \
@@ -137,7 +139,7 @@ uint8_t const desc_hid_report[] =
             /* ------------ Display Attributes ------------------------*/ \
             0x09, 0x20, /* USAGE (Display Attributes) */ \
             0xa1, 0x02, /* COLLECTION (Logical) */ \
-            0x85, 0x03, /* Report ID (03) */
+            0x85, 0x12, /* Report ID (12) */
             0x09, 0x35, /*USAGE (Rows) */ \
             0x09, 0x36, /*USAGE (Columns) */ \
             0x15, 0x00, /*Logical Minimum (0), */ \
@@ -158,7 +160,7 @@ uint8_t const desc_hid_report[] =
             /* ------------ Display Control Report ------------------------*/ \
             0x09, 0x24,       /* USAGE (Display Control) */ \
             0xA1, 0x02,       /* COLLECTION(Logical) */ \
-            0x85, 0x04,       /* Report ID (04) */ \
+            0x85, 0x13,       /* Report ID (13) */ \
             0x09, 0x26,       /* USAGE (Enable Display) */ \
             0x09, 0x25,       /* USAGE (Clear Display) */ \
             0x0A, 0x10, 0xFF, /* USAGE (Back Light) */ \
@@ -179,7 +181,7 @@ uint8_t const desc_hid_report[] =
             /* ------------ Character Attribute Report ------------------------*/ \
             0x09, 0x48,       /* USAGE (Character Attributes) */ \
             0xA1, 0x02,       /* COLLECTION(Logical) */ \
-            0x85, 0x05,       /* Report ID (05) */ \
+            0x85, 0x14,       /* Report ID (14) */ \
             0x19, 0x81,       /* USAGE_MINIMUM (Local User Name) */ \
             0x29, 0x8A,       /* USAGE_MAXIMUM (Number) */ \
             0x15, 0x01,       /* LOGICAL_MINIMUM (1) */ \
@@ -202,7 +204,7 @@ uint8_t const desc_hid_report[] =
             /* ------------ Character Report ------------------------*/ \
             0x09, 0x2B,                   /* USAGE (Character Report) */ \
             0xA1, 0x02,                   /* COLLECTION(Logical) */ \
-            0x85, 0x06,                   /* Report ID (06) */ \
+            0x85, 0x15,                   /* Report ID (15) */ \
             0x95, 0x01,                   /* REPORT_COUNT (1) */ \
             0x75, 0x07,                   /* REPORT_SIZE (7) */ \
             0x91, 0x03,                   /* OUTPUT (Const,Var,Abs)            //Pading 7 */ \
@@ -221,7 +223,7 @@ uint8_t const desc_hid_report[] =
             /*--------- Icons Report ------------------------------------ */ \
             0x0A, 0x17, 0xFF, /* USAGE (Icons Control) */ \
             0xA1, 0x02,       /* COLLECTION(Logical) */ \
-            0x85, 0x07,       /* Report ID (07) */ \
+            0x85, 0x16,       /* Report ID (16) */ \
             0x0A, 0x18, 0xFF, /* USAGE (Presence Icon) */ \
             0x15, 0x00,       /* Logical Minimum (0), */ \
             0x25, 0x0F,       /* Logical Maximum (15), */ \
@@ -251,7 +253,7 @@ uint8_t const desc_hid_report[] =
             0xc0,             /* END_COLLECTION */ \
             /*--------- Display Setup Info Report ------------------------------------ */ \
             0xA1, 0x02,                   /* COLLECTION(Logical)*/ \
-            0x85, 0x08,                   /* Report ID (08)*/ \
+            0x85, 0x17,                   /* Report ID (17)*/ \
             0x15, 0x00,                   /* Logical Minimum (0),*/ \
             0x27, 0xFF, 0xFF, 0x00, 0x00, /*Logical Maximum (65535)*/ \
             0x95, 0x01,                   /* REPORT_COUNT (1)*/ \
@@ -344,6 +346,7 @@ uint8_t const desc_hid_report[] =
 // Application return pointer to descriptor
 // Descriptor contents must exist long enough for transfer to complete
 uint8_t const *tud_hid_descriptor_report_cb(void) {
+    printf("DEBUG: tud_hid_descriptor_report_cb triggered\n");
     return desc_hid_report;
 }
 
@@ -374,6 +377,7 @@ uint8_t const desc_configuration[] =
 // Application return pointer to descriptor
 // Descriptor contents must exist long enough for transfer to complete
 uint8_t const *tud_descriptor_configuration_cb(uint8_t index) {
+    printf("DEBUG: tud_descriptor_configuration_cb triggered\n");
     (void) index; // for multiple configurations
     return desc_configuration;
 }
@@ -386,8 +390,8 @@ uint8_t const *tud_descriptor_configuration_cb(uint8_t index) {
 char const *string_desc_arr[] =
         {
                 (const char[]) {0x09, 0x04}, // 0: is supported language is English (0x0409)
-                "BuildComics",                     // 1: Manufacturer
-                "BuildComics Device",              // 2: Product
+                "Microsoft",                     // 1: Manufacturer
+                "Microsoft",              // 2: Product
                 "1337",                      // 3: Serials, should use chip ID
         };
 
@@ -396,6 +400,7 @@ static uint16_t _desc_str[32];
 // Invoked when received GET STRING DESCRIPTOR request
 // Application return pointer to descriptor, whose contents must exist long enough for transfer to complete
 uint16_t const *tud_descriptor_string_cb(uint8_t index, uint16_t langid) {
+    printf("DEBUG: tud_descriptor_string_cb triggered\n");
     (void) langid;
 
     uint8_t chr_count;
