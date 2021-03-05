@@ -49,8 +49,8 @@ tusb_desc_device_t const desc_device =
                 .bDeviceProtocol    = 0x00,
                 .bMaxPacketSize0    = CFG_TUD_ENDPOINT0_SIZE,
 
-                .idVendor           = 0x045e,
-                .idProduct          = USB_PID,
+                .idVendor           = 0x27bb,
+                .idProduct          = 0x3bcd,
                 .bcdDevice          = 0x0100,
 
                 .iManufacturer      = 0x01,
@@ -115,6 +115,24 @@ uint8_t const *tud_descriptor_device_cb(void) {
             HID_COLLECTION_END                                                      ,\
 
 uint8_t const desc_hid_report[] =
+        {
+            0x06, 0x00, 0xFF, /* USAGE_PAGE (Custom UC Display)  */ \
+            HID_USAGE      ( 0x01 )                    ,\
+            HID_COLLECTION ( HID_COLLECTION_APPLICATION )                    ,\
+                /* Report ID if any */\
+                HID_USAGE_MIN    ( 0x40                                    )  ,\
+                HID_USAGE_MAX    ( 0x40                                    )  ,\
+                HID_LOGICAL_MIN  ( 0                                      )  ,\
+                0x26, 0xFF, 0x00, /* Logical Maximum (255) */ \
+                HID_REPORT_SIZE  ( 8                                      )  ,\
+                HID_REPORT_COUNT ( 64                                      )  ,\
+                HID_INPUT        ( HID_DATA)  ,\
+                HID_USAGE_MIN    ( 0x40                                    )  ,\
+                HID_USAGE_MAX    ( 0x40                                    )  ,\
+                HID_OUTPUT       ( HID_DATA ) ,\
+            HID_COLLECTION_END                                                      ,\
+};
+uint8_t const org_desc_hid_report[] =
         {
             /*-------- LCD display ----------------------------------*/ \
             0x06, 0x99, 0xFF, /* USAGE_PAGE (Custom UC Display)  */ \
@@ -378,6 +396,7 @@ uint8_t const desc_configuration[] =
 // Descriptor contents must exist long enough for transfer to complete
 uint8_t const *tud_descriptor_configuration_cb(uint8_t index) {
     printf("DEBUG: tud_descriptor_configuration_cb triggered\n");
+    printf("index: %X\n", index);
     (void) index; // for multiple configurations
     return desc_configuration;
 }
@@ -389,10 +408,11 @@ uint8_t const *tud_descriptor_configuration_cb(uint8_t index) {
 // array of pointer to string descriptors
 char const *string_desc_arr[] =
         {
-                (const char[]) {0x09, 0x04}, // 0: is supported language is English (0x0409)
-                "Microsoft",                     // 1: Manufacturer
-                "Microsoft",              // 2: Product
-                "1337",                      // 3: Serials, should use chip ID
+                //(const char[]) {0x00, 0x00}, // 0: is supported language is English (0x0409)
+                (const char[]) {0x00}, // 0: is supported language is English (0x0409)
+                "PLENOM APS",                     // 1: Manufacturer
+                "BUSYLIGHT",              // 2: Product
+                "0",                      // 3: Serials, should use chip ID
         };
 
 static uint16_t _desc_str[32];
@@ -401,6 +421,8 @@ static uint16_t _desc_str[32];
 // Application return pointer to descriptor, whose contents must exist long enough for transfer to complete
 uint16_t const *tud_descriptor_string_cb(uint8_t index, uint16_t langid) {
     printf("DEBUG: tud_descriptor_string_cb triggered\n");
+    printf("index: %X\n", index);
+    printf("langid: %X\n", langid);
     (void) langid;
 
     uint8_t chr_count;
