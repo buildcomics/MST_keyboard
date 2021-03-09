@@ -49,7 +49,7 @@ int main() {
 
 // Invoked when device is mounted
 void tud_mount_cb(void) {
-    printf("DEBUG: Mounted\n");
+    printf("DEBUG: MOUNTED\n");
 }
 
 // Invoked when device is unmounted
@@ -93,7 +93,32 @@ void hid_task(void) {
 
 }
 
+// Invoked when received control request with VENDOR TYPE
+//TU_ATTR_WEAK bool tud_vendor_control_request_cb(uint8_t rhport, tusb_control_request_t const * request);
+bool tud_vendor_control_request_cb(uint8_t rhport, tusb_control_request_t const * request) {
+    // TODO not Implemented
+    printf("DEBUG: tud_vendor_control_request_cb triggered\n");
+    (void) rhport;
+    (void) request;
 
+    return 0;
+}
+
+// Invoked when vendor control request is complete
+//TU_ATTR_WEAK bool tud_vendor_control_complete_cb(uint8_t rhport, tusb_control_request_t const * request);
+bool tud_vendor_control_complete_cb(uint8_t rhport, tusb_control_request_t const * request) {
+    // TODO not Implemented
+    printf("DEBUG: tud_vendor_control_complete_cb triggered\n");
+    (void) rhport;
+    (void) request;
+
+    return 0;
+}
+
+
+
+
+//attempt to use:
 // Invoked when received GET_REPORT control request
 // Application must fill buffer report's content and return its length.
 // Return zero will cause the stack to STALL request
