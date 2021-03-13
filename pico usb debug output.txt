@@ -1,0 +1,764 @@
+
+Welcome to minicom 2.8
+
+OPTIONS: I18n 
+Compiled on Jan  9 2021, 12:42:45.
+Port /dev/ttyUSB0
+
+Press CTRL-A Z for help on special keys
+
+DEBUG: starti�DEBUG: HID Device initialized
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 0
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 2
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 1
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: Mounted
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+DEBUG: tud_hid_descriptor_report_cb triggered
+DEBUG: starti�DEBUG: HID Device initialized
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 0
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 2
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 1
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: Mounted
+DEBUG: tud_descriptor_string_cb triggered
+index: 3                                                                                                                                              
+langid: 0                                                                                                                                             
+DEBUG: tud_hid_descriptor_report_cb triggered                                                                                                         
+DEBUG: starti�DEBUG: HID Device initialized                                                                                                           
+DEBUG: tud_descriptor_configuration_cb triggered                                                                                                      
+index: 0                                                                                                                                              
+DEBUG: tud_descriptor_configuration_cb triggered                                                                                                      
+index: 0                                                                                                                                              
+DEBUG: tud_descriptor_string_cb triggered                                                                                                             
+index: 0                                                                                                                                              
+langid: 0                                                                                                                                             
+DEBUG: tud_descriptor_string_cb triggered                                                                                                             
+index: 2                                                                                                                                              
+langid: 0                                                                                                                                             
+DEBUG: tud_descriptor_string_cb triggered                                                                                                             
+index: 1                                                                                                                                              
+langid: 0                                                                                                                                             
+DEBUG: tud_descriptor_string_cb triggered                                                                                                             
+index: 3                                                                                                                                              
+langid: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: Mounted
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+DEBUG: tud_hid_descriptor_report_cb triggered
+DEBUG: starti�DEBUG: HID Device initialized
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 0
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 2
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 1
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: MOUNTED
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+DEBUG: tud_hid_descriptor_report_cb triggered
+
+
+DEBUG: starti�DEBUG: HID Device initialized
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 409
+DEBUG: tud_descriptor_string_cb triggered
+index: 0
+langid: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: MOUNTED
+DEBUG: tud_hid_descriptor_report_cb triggered
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: starti�DEBUG: HID Device initialized
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 0
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 2
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 1
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: MOUNTED
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+DEBUG: tud_hid_descriptor_report_cb triggered
+
+
+
+DEBUG: starti�DEBUG: HID Device initialized
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 0
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 2
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 1
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: MOUNTED
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+DEBUG: tud_hid_descriptor_report_cb triggered
+
+
+
+DEBUG: starti�DEBUG: HID Device initialized
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 0
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 2
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 1
+langid: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: MOUNTED
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+DEBUG: tud_hid_descriptor_report_cb triggered
+DEBUG: btn_callback triggered
+DEBUG: gpio: 9
+DEBUG: events: 4
+DEBUG: Falling Edge on Button 1
+DEBUG: btn_callback triggered
+DEBUG: gpio: 9
+DEBUG: events: 8
+DEBUG: starti�DEBUG: HID Device initialized
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 409
+DEBUG: tud_descriptor_string_cb triggered
+index: 0
+langid: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: MOUNTED
+DEBUG: tud_hid_descriptor_report_cb triggered
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+DEBUG: starti�M �init
+HID init
+DEBUG: HID Device initialized
+USBD Bus Reset 
+
+USBD Setup Received 80 06 00 01 00 00 40 00 
+  Get Descriptor Device
+  Queue EP 80 with 18 bytes
+USBD Xfer Complete on EP 80 with 18 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+USBD Bus Reset 
+
+USBD Setup Received 00 05 18 00 00 00 00 00 
+  Set Address
+USBD Xfer Complete on EP 80 with 0 bytes
+
+USBD Setup Received 80 06 00 01 00 00 12 00 
+  Get Descriptor Device
+  Queue EP 80 with 18 bytes
+USBD Xfer Complete on EP 80 with 18 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 06 00 00 0A 00 
+  Get Descriptor Device Qualifier
+  Stall EP0
+
+USBD Setup Received 80 06 00 06 00 00 0A 00 
+  Get Descriptor Device Qualifier
+  Stall EP0
+
+USBD Setup Received 80 06 00 06 00 00 0A 00 
+  Get Descriptor Device Qualifier
+  Stall EP0
+
+USBD Setup Received 80 06 00 02 00 00 09 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 9 bytes
+USBD Xfer Complete on EP 80 with 9 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 22 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 34 bytes
+USBD Xfer Complete on EP 80 with 34 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 03 00 00 FF 00 
+  Get Descriptor String[0]
+DEBUG: tud_descriptor_string_cb triggered
+index: 0
+langid: 0
+  Queue EP 80 with 4 bytes
+USBD Xfer Complete on EP 80 with 4 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 02 03 00 00 FF 00 
+  Get Descriptor String[2]
+DEBUG: tud_descriptor_string_cb triggered
+index: 2
+langid: 0
+  Queue EP 80 with 20 bytes
+USBD Xfer Complete on EP 80 with 20 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 01 03 00 00 FF 00 
+  Get Descriptor String[1]
+DEBUG: tud_descriptor_string_cb triggered
+index: 1
+langid: 0
+  Queue EP 80 with 22 bytes
+USBD Xfer Complete on EP 80 with 22 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 03 03 00 00 FF 00 
+  Get Descriptor String[3]
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+  Queue EP 80 with 4 bytes
+USBD Xfer Complete on EP 80 with 4 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 00 09 01 00 00 00 00 00 
+  Set Configuration
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Open EP 81 with Size = 16
+  HID opened
+DEBUG: MOUNTED
+  Queue EP 80 with zlp Status
+USBD Xfer Complete on EP 80 with 0 bytes
+
+USBD Setup Received 80 06 03 03 00 00 FF 00 
+  Get Descriptor String[3]
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 0
+  Queue EP 80 with 4 bytes
+USBD Xfer Complete on EP 80 with 4 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 21 0A 00 00 00 00 00 00 
+  HID control request
+  Queue EP 80 with zlp Status
+USBD Xfer Complete on EP 80 with 0 bytes
+
+USBD Setup Received 81 06 00 22 00 00 1D 00 
+  Get Descriptor  HID control request
+DEBUG: tud_hid_descriptor_report_cb triggered
+  Queue EP 80 with 29 bytes
+USBD Xfer Complete on EP 80 with 29 bytes
+  HID control complete
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+
+
+DEBUG: starti�M �init
+HID init
+DEBUG: HID Device initialized
+USBD Bus Reset 
+
+USBD Setup Received 80 06 00 01 00 00 40 00 
+  Get Descriptor Device
+  Queue EP 80 with 18 bytes
+USBD Xfer Complete on EP 80 with 18 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+USBD Bus Reset 
+
+USBD Setup Received 00 05 0C 00 00 00 00 00 
+  Set Address
+USBD Xfer Complete on EP 80 with 0 bytes
+
+USBD Setup Received 80 06 00 01 00 00 12 00 
+  Get Descriptor Device
+  Queue EP 80 with 18 bytes
+USBD Xfer Complete on EP 80 with 18 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 FF 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 34 bytes
+USBD Xfer Complete on EP 80 with 34 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 03 03 09 04 FF 00 
+  Get Descriptor String[3]
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 409
+  Queue EP 80 with 4 bytes
+USBD Xfer Complete on EP 80 with 4 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 03 00 00 FF 00 
+  Get Descriptor String[0]
+DEBUG: tud_descriptor_string_cb triggered
+index: 0
+langid: 0
+  Queue EP 80 with 4 bytes
+USBD Xfer Complete on EP 80 with 4 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 06 00 00 0A 00 
+  Get Descriptor Device Qualifier
+  Stall EP0
+
+USBD Setup Received 80 06 00 01 00 00 12 00 
+  Get Descriptor Device
+  Queue EP 80 with 18 bytes
+USBD Xfer Complete on EP 80 with 18 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 09 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 9 bytes
+USBD Xfer Complete on EP 80 with 9 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 22 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 34 bytes
+USBD Xfer Complete on EP 80 with 34 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 01 00 00 12 00 
+  Get Descriptor Device
+  Queue EP 80 with 18 bytes
+USBD Xfer Complete on EP 80 with 18 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 09 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 9 bytes
+USBD Xfer Complete on EP 80 with 9 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 22 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 34 bytes
+USBD Xfer Complete on EP 80 with 34 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 01 00 00 12 00 
+  Get Descriptor Device
+  Queue EP 80 with 18 bytes
+USBD Xfer Complete on EP 80 with 18 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 09 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 9 bytes
+USBD Xfer Complete on EP 80 with 9 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 22 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 34 bytes
+USBD Xfer Complete on EP 80 with 34 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 00 09 01 00 00 00 00 00 
+  Set Configuration
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Open EP 81 with Size = 16
+  HID opened
+DEBUG: MOUNTED
+  Queue EP 80 with zlp Status
+USBD Xfer Complete on EP 80 with 0 bytes
+
+USBD Setup Received 21 0A 00 00 00 00 00 00 
+  HID control request
+  Queue EP 80 with zlp Status
+USBD Xfer Complete on EP 80 with 0 bytes
+
+USBD Setup Received 81 06 00 22 00 00 5D 00 
+  Get Descriptor  HID control request
+DEBUG: tud_hid_descriptor_report_cb triggered
+  Queue EP 80 with 29 bytes
+USBD Xfer Complete on EP 80 with 29 bytes
+  HID control complete
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 21 09 00 02 00 00 40 00 
+  HID control request
+  Stall EP0
+
+USBD Setup Received 21 09 00 02 00 00 40 00 
+  HID control request
+  Stall EP0
+
+USBD Setup Received 80 06 00 02 00 00 09 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 9 bytes
+USBD Xfer Complete on EP 80 with 9 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 22 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 34 bytes
+USBD Xfer Complete on EP 80 with 34 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+usbpDEBUG: starti�M     �init
+HID init
+DEBUG: HID Device initialized
+USBD Bus Reset 
+
+USBD Setup Received 80 06 00 01 00 00 40 00 
+  Get Descriptor Device
+  Queue EP 80 with 18 bytes
+USBD Xfer Complete on EP 80 with 18 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+USBD Bus Reset 
+
+USBD Setup Received 00 05 0A 00 00 00 00 00 
+  Set Address
+USBD Xfer Complete on EP 80 with 0 bytes
+
+USBD Setup Received 80 06 00 01 00 00 12 00 
+  Get Descriptor Device
+  Queue EP 80 with 18 bytes
+USBD Xfer Complete on EP 80 with 18 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 FF 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 34 bytes
+USBD Xfer Complete on EP 80 with 34 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 03 03 09 04 FF 00 
+  Get Descriptor String[3]
+DEBUG: tud_descriptor_string_cb triggered
+index: 3
+langid: 409
+  Queue EP 80 with 4 bytes
+USBD Xfer Complete on EP 80 with 4 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 03 00 00 FF 00 
+  Get Descriptor String[0]
+DEBUG: tud_descriptor_string_cb triggered
+index: 0
+langid: 0
+  Queue EP 80 with 4 bytes
+USBD Xfer Complete on EP 80 with 4 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 06 00 00 0A 00 
+  Get Descriptor Device Qualifier
+  Stall EP0
+
+USBD Setup Received 80 06 00 01 00 00 12 00 
+  Get Descriptor Device
+  Queue EP 80 with 18 bytes
+USBD Xfer Complete on EP 80 with 18 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 09 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 9 bytes
+USBD Xfer Complete on EP 80 with 9 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 22 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 34 bytes
+USBD Xfer Complete on EP 80 with 34 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 01 00 00 12 00 
+  Get Descriptor Device
+  Queue EP 80 with 18 bytes
+USBD Xfer Complete on EP 80 with 18 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 09 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 9 bytes
+USBD Xfer Complete on EP 80 with 9 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 22 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 34 bytes
+USBD Xfer Complete on EP 80 with 34 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 01 00 00 12 00 
+  Get Descriptor Device
+  Queue EP 80 with 18 bytes
+USBD Xfer Complete on EP 80 with 18 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 09 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 9 bytes
+USBD Xfer Complete on EP 80 with 9 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 22 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 34 bytes
+USBD Xfer Complete on EP 80 with 34 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 00 09 01 00 00 00 00 00 
+  Set Configuration
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Open EP 81 with Size = 16
+  HID opened
+DEBUG: MOUNTED
+  Queue EP 80 with zlp Status
+USBD Xfer Complete on EP 80 with 0 bytes
+
+USBD Setup Received 21 0A 00 00 00 00 00 00 
+  HID control request
+  Queue EP 80 with zlp Status
+USBD Xfer Complete on EP 80 with 0 bytes
+
+USBD Setup Received 81 06 00 22 00 00 5D 00 
+  Get Descriptor  HID control request
+DEBUG: tud_hid_descriptor_report_cb triggered
+  Queue EP 80 with 29 bytes
+USBD Xfer Complete on EP 80 with 29 bytes
+  HID control complete
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 21 09 00 02 00 00 40 00 
+  HID control request
+  Stall EP0
+
+USBD Setup Received 21 09 00 02 00 00 40 00 
+  HID control request
+  Stall EP0
+
+USBD Setup Received 80 06 00 02 00 00 09 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 9 bytes
+USBD Xfer Complete on EP 80 with 9 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 80 06 00 02 00 00 22 00 
+  Get Descriptor Configuration[0]
+DEBUG: tud_descriptor_configuration_cb triggered
+index: 0
+  Queue EP 80 with 34 bytes
+USBD Xfer Complete on EP 80 with 34 bytes
+  Queue EP 00 with zlp Status
+USBD Xfer Complete on EP 00 with 0 bytes
+
+USBD Setup Received 00 01 01 00 00 00 00 00 
+  Clear Feature
+  Queue EP 80 with zlp Status
+USBD Xfer Complete on EP 80 with 0 bytes
+
+USBD Setup Received 21 0A 00 00 00 00 00 00 
+  HID control request
+  Queue EP 80 with zlp Status
+USBD Xfer Complete on EP 80 with 0 bytes
+
+USBD Setup Received 00 01 01 00 00 00 00 00 
+  Clear Feature
+  Queue EP 80 with zlp Status
+USBD Xfer Complete on EP 80 with 0 bytes
+
+USBD Setup Received 21 0A 00 00 00 00 00 00 
+  HID control request
+  Queue EP 80 with zlp Status
+USBD Xfer Complete on EP 80 with 0 bytes
+
+CTRL-A Z for help | 115200 8N1 | NOR | Minicom 2.8 | VT102 | Offline | ttyUSB0                                                                                                                                                         

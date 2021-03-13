@@ -70,6 +70,10 @@ char packet_bytes[] = {
 };
 ```
 
+## USB Pcap
+- Pico start: 40.85, source 2.10.0, wireshark filter: usb.device_address == 10
+- Kuando start: 71.89, source 2.11.0, wireshark filter: usb.device_address == 11
+
 ## License
 MIT License
 
