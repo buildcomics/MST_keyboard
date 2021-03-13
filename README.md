@@ -70,9 +70,13 @@ char packet_bytes[] = {
 };
 ```
 
-## USB Pcap
+## USB Pcap in "pico and kunado.pcap"
 - Pico start: 40.85, source 2.10.0, wireshark filter: usb.device_address == 10
 - Kuando start: 71.89, source 2.11.0, wireshark filter: usb.device_address == 11
+
+# Debug OUTPUT
+Debug output of the same thing is stored in "pico usb debug output.txt"
+Working with setting of debug = 2
 
 ## License
 MIT License
