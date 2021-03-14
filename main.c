@@ -136,7 +136,6 @@ uint16_t tud_hid_get_report_cb(uint8_t report_id, hid_report_type_t report_type,
 // Invoked when received SET_REPORT control request or
 // received data on OUT endpoint ( Report ID = 0, Type = 0 )
 void tud_hid_set_report_cb(uint8_t report_id, hid_report_type_t report_type, uint8_t const *buffer, uint16_t bufsize) {
-    // TODO set LED based on CAPLOCK, NUMLOCK etc...
     printf("DEBUG: tud_hid_set_report_cb triggered\n");
     printf("DEBUG: report_id: %X\n", report_id);
     printf("DEBUG: report_type: %X\n", report_type);
@@ -146,7 +145,52 @@ void tud_hid_set_report_cb(uint8_t report_id, hid_report_type_t report_type, uin
     for (int i = 0; i < bufsize; i++) {
         printf("%02X ", buffer[i]);
     }
-    printf(" - End \n");
+    printf("\n - End \n");
+    uint8_t setup_request_string = {
+        0x8f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x06, 0x04, 0x55, 0xff, 0xff, 0xff, 0x03, 0xeb
+    };
+    if (strcmp(buffer,setup_request_string)) {
+        printf("DEBUG: Matching setup request string, answering\n");
+        char setup_request_return[] = {
+            0x30, 0x30, 0x30, 0x31, 0x50, 0x4c, 0x45, 0x4e,
+            0x4f, 0x4d, 0x30, 0x30, 0x30, 0x30, 0x30, 0x31,
+            0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x31,
+            0x44, 0x41, 0x53, 0x41, 0x4e, 0x30, 0x30, 0x30,
+            0x32, 0x30, 0x31, 0x35, 0x30, 0x35, 0x32, 0x38,
+            0x30, 0x32, 0x31, 0x30, 0x30, 0x30, 0x30, 0x30,
+            0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
+            0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30
+        };
+        tud_hid_report(0, &setup_request_return, sizeof(setup_request_return));
+    }
+    //TODO: Answer accordingly with tud_hid_report(0, buffer, bufsize) (report id, buffer, bufsize)
+    /*
+    /--------------------------------------------------------------------+
+// KEYBOARD API
+//--------------------------------------------------------------------+
+bool tud_hid_n_keyboard_report(uint8_t itf, uint8_t report_id, uint8_t modifier, uint8_t keycode[6])
+{
+  hid_keyboard_report_t report;
+
+  report.modifier = modifier;
+
+  if ( keycode )
+  {
+    memcpy(report.keycode, keycode, 6);
+  }else
+  {
+    tu_memclr(report.keycode, 6);
+  }
+
+  return tud_hid_n_report(itf, report_id, &report, sizeof(report));
+}*/
     (void) report_id;
     (void) report_type;
     (void) buffer;
