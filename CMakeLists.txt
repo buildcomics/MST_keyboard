@@ -17,7 +17,7 @@ pico_add_extra_outputs(main)
 
 target_include_directories(main PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 
-target_link_libraries(main PRIVATE pico_stdlib tinyusb_device tinyusb_board)
+target_link_libraries(main PRIVATE pico_stdlib hardware_pwm tinyusb_device tinyusb_board)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Og -DCFG_TUSB_DEBUG=2")
 set(CMAKE_DEFSYM "${CMAKE_DEFSYM} -DLOG=2")

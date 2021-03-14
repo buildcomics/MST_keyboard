@@ -4,6 +4,7 @@
 
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
+#include "hardware/pwm.h"
 
 #include "bsp/board.h"
 #include "tusb.h"
@@ -13,9 +14,12 @@
 #define BTN_1_GPIO 9
 #define BTN_2_GPIO 4
 #define LED_1_RED_GPIO 8
+#define LED_1_GREEN_GPIO 10
+#define LED_1_BLUE_GPIO 11
 
 #define EVENT_MASK_LOW 0x1
 #define EVENT_MASK_HIGH 0x2
+#define PWM_COUNT_TOP 100
 
 //Function Prototypes
 void btn_callback(uint gpio, uint32_t events);
@@ -36,9 +40,31 @@ int main() {
     gpio_set_irq_enabled_with_callback(BTN_2_GPIO, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &btn_callback); //Set IRQ interrupt when switch has rising edge
 
     //setup LED gpio
-    gpio_init(LED_1_RED_GPIO);
-    gpio_set_dir(LED_1_RED_GPIO, GPIO_OUT);
+    //gpio_init(LED_1_RED_GPIO);
+    //gpio_set_dir(LED_1_RED_GPIO, GPIO_OUT);
 
+    //setup LED PWM
+     // Configure PWM slice and set it running
+    pwm_config cfg = pwm_get_default_config();
+    pwm_config_set_wrap(&cfg, PWM_COUNT_TOP);
+    pwm_init(pwm_gpio_to_slice_num(LED_1_RED_GPIO), &cfg, true);
+    pwm_init(pwm_gpio_to_slice_num(LED_1_GREEN_GPIO), &cfg, true);
+    pwm_init(pwm_gpio_to_slice_num(LED_1_BLUE_GPIO), &cfg, true);
+
+    // Note we aren't touching the other pin yet -- PWM pins are outputs by
+    // default, but change to inputs once the divider mode is changed from
+    // free-running. It's not wise to connect two outputs directly together!
+    gpio_set_function(LED_1_RED_GPIO, GPIO_FUNC_PWM);
+    gpio_set_function(LED_1_GREEN_GPIO, GPIO_FUNC_PWM);
+    gpio_set_function(LED_1_BLUE_GPIO, GPIO_FUNC_PWM);
+
+    pwm_set_gpio_level(LED_1_RED_GPIO, 1 * (PWM_COUNT_TOP + 1));
+    sleep_ms(500);
+    pwm_set_gpio_level(LED_1_RED_GPIO, 0 );
+    pwm_set_gpio_level(LED_1_GREEN_GPIO, 1 * (PWM_COUNT_TOP + 1));
+    sleep_ms(500);
+    pwm_set_gpio_level(LED_1_GREEN_GPIO, 0 );
+    pwm_set_gpio_level(LED_1_BLUE_GPIO, 1 * (PWM_COUNT_TOP + 1));
     // MAIN LOOP
     while (true){
         hid_task();
@@ -165,14 +191,21 @@ void tud_hid_set_report_cb(uint8_t report_id, hid_report_type_t report_type, uin
         };
         tud_hid_report(0, &setup_request_return, sizeof(setup_request_return));
     }
+    else if(bufsize == 64 && (buffer[0] == 0x10 || buffer[0] == 0x11)) {
+        printf("DEBUG light command received:\n");
+        printf("DEBUG RED: %d \n", buffer[2]); //2 = red pwm value
+        printf("DEBUG GREEN: %d \n", buffer[3]); //3 = green pwm value
+        printf("DEBUG BLUE: %d \n", buffer[4]); //4 = blue pwm value
+        pwm_set_gpio_level(LED_1_RED_GPIO, buffer[2]);
+        pwm_set_gpio_level(LED_1_GREEN_GPIO, buffer[3]);
+        pwm_set_gpio_level(LED_1_BLUE_GPIO, buffer[4]);
+    }
     else {
         printf("DEBUG, not matching setup string BUFFER CONTENT:\n");
         for (int i = 0; i < bufsize; i++) {
             printf("%02X ", buffer[i]);
         }
         printf("\n - End \n");
-        //TODO: reverse engineer protocol using https://github.com/mitrefccace/busylightapi/blob/master/python/busylightapi.py
-
     }
 
     (void) report_id;
