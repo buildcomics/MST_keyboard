@@ -140,13 +140,7 @@ void tud_hid_set_report_cb(uint8_t report_id, hid_report_type_t report_type, uin
     printf("DEBUG: report_id: %X\n", report_id);
     printf("DEBUG: report_type: %X\n", report_type);
     printf("DEBUG: bufsize: %d\n", bufsize);
-
-    printf("DEBUG: buffer content:\n");
-    for (int i = 0; i < bufsize; i++) {
-        printf("%02X ", buffer[i]);
-    }
-    printf("\n - End \n");
-    uint8_t setup_request_string = {
+    const char setup_request_string[] = {
         0x8f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -156,9 +150,10 @@ void tud_hid_set_report_cb(uint8_t report_id, hid_report_type_t report_type, uin
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         0x06, 0x04, 0x55, 0xff, 0xff, 0xff, 0x03, 0xeb
     };
-    if (strcmp(buffer,setup_request_string)) {
+
+    if (strcmp(buffer, setup_request_string) == 0) {
         printf("DEBUG: Matching setup request string, answering\n");
-        char setup_request_return[] = {
+        const char setup_request_return[] = {
             0x30, 0x30, 0x30, 0x31, 0x50, 0x4c, 0x45, 0x4e,
             0x4f, 0x4d, 0x30, 0x30, 0x30, 0x30, 0x30, 0x31,
             0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x31,
@@ -170,27 +165,16 @@ void tud_hid_set_report_cb(uint8_t report_id, hid_report_type_t report_type, uin
         };
         tud_hid_report(0, &setup_request_return, sizeof(setup_request_return));
     }
-    //TODO: Answer accordingly with tud_hid_report(0, buffer, bufsize) (report id, buffer, bufsize)
-    /*
-    /--------------------------------------------------------------------+
-// KEYBOARD API
-//--------------------------------------------------------------------+
-bool tud_hid_n_keyboard_report(uint8_t itf, uint8_t report_id, uint8_t modifier, uint8_t keycode[6])
-{
-  hid_keyboard_report_t report;
+    else {
+        printf("DEBUG, not matching setup string BUFFER CONTENT:\n");
+        for (int i = 0; i < bufsize; i++) {
+            printf("%02X ", buffer[i]);
+        }
+        printf("\n - End \n");
+        //TODO: reverse engineer protocol using https://github.com/mitrefccace/busylightapi/blob/master/python/busylightapi.py
 
-  report.modifier = modifier;
+    }
 
-  if ( keycode )
-  {
-    memcpy(report.keycode, keycode, 6);
-  }else
-  {
-    tu_memclr(report.keycode, 6);
-  }
-
-  return tud_hid_n_report(itf, report_id, &report, sizeof(report));
-}*/
     (void) report_id;
     (void) report_type;
     (void) buffer;
