@@ -39,21 +39,13 @@ int main() {
     gpio_set_irq_enabled_with_callback(BTN_1_GPIO, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &btn_callback); //Set IRQ interrupt when switch has rising edge
     gpio_set_irq_enabled_with_callback(BTN_2_GPIO, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &btn_callback); //Set IRQ interrupt when switch has rising edge
 
-    //setup LED gpio
-    //gpio_init(LED_1_RED_GPIO);
-    //gpio_set_dir(LED_1_RED_GPIO, GPIO_OUT);
-
     //setup LED PWM
-     // Configure PWM slice and set it running
     pwm_config cfg = pwm_get_default_config();
     pwm_config_set_wrap(&cfg, PWM_COUNT_TOP);
     pwm_init(pwm_gpio_to_slice_num(LED_1_RED_GPIO), &cfg, true);
     pwm_init(pwm_gpio_to_slice_num(LED_1_GREEN_GPIO), &cfg, true);
     pwm_init(pwm_gpio_to_slice_num(LED_1_BLUE_GPIO), &cfg, true);
 
-    // Note we aren't touching the other pin yet -- PWM pins are outputs by
-    // default, but change to inputs once the divider mode is changed from
-    // free-running. It's not wise to connect two outputs directly together!
     gpio_set_function(LED_1_RED_GPIO, GPIO_FUNC_PWM);
     gpio_set_function(LED_1_GREEN_GPIO, GPIO_FUNC_PWM);
     gpio_set_function(LED_1_BLUE_GPIO, GPIO_FUNC_PWM);
@@ -65,6 +57,14 @@ int main() {
     sleep_ms(500);
     pwm_set_gpio_level(LED_1_GREEN_GPIO, 0 );
     pwm_set_gpio_level(LED_1_BLUE_GPIO, 1 * (PWM_COUNT_TOP + 1));
+
+    //TODO test keyboard together with busylight HID mode (see examples mouse & keyboard?)
+    // try win+1 & ctrl+shift+m for mute (alt + tab to go back)
+    // try win+1 & ctrl+shift+o for camera on / off (alt + tab to go back)
+    // try shortcuts for answering and rejecting the call
+    //TODO: ? setup AHK to always use teams meeting window for mute
+    //
+
     // MAIN LOOP
     while (true){
         hid_task();
