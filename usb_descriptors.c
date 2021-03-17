@@ -36,6 +36,8 @@
 #define USB_PID           (0x4000 | _PID_MAP(CDC, 0) | _PID_MAP(MSC, 1) | _PID_MAP(HID, 2) | \
                            _PID_MAP(MIDI, 3) | _PID_MAP(VENDOR, 4) )
 
+bool sent_busylight_hid = true;
+
 //--------------------------------------------------------------------+
 // Device Descriptors
 //--------------------------------------------------------------------+
@@ -69,54 +71,30 @@ uint8_t const *tud_descriptor_device_cb(void) {
 //--------------------------------------------------------------------+
 // HID Report Descriptor
 //--------------------------------------------------------------------+
-//TODO: setup HID report for telephony page device: https://github.com/hathach/tinyusb/blob/master/src/class/hid/hid_device.h
-//Use defines from https://github.com/hathach/tinyusb/blob/master/src/class/hid/hid.h
-// try logging: https://github.com/hathach/tinyusb/blob/master/docs/getting_started.md
-// Make sure to report HOOK_SWITCH_HID and HOOK_OFF_LED
-// Ask help in the discussion for telephony setup?https://github.com/hathach/tinyusb/discussions
-
-//HID_USAGE_PAGE ( HID_USAGE_PAGE_DESKTOP     )                    ,\
-            HID_USAGE      ( HID_USAGE_DESKTOP_KEYBOARD )                    ,\
-            HID_COLLECTION ( HID_COLLECTION_APPLICATION )                    ,\
-                /* Report ID if any */\
-                HID_REPORT_ID(REPORT_ID_KEYBOARD) \
-                /* 8 bits Modifier Keys (Shfit, Control, Alt) */ \
-                HID_USAGE_PAGE ( HID_USAGE_PAGE_KEYBOARD )                     ,\
-                    HID_USAGE_MIN    ( 224                                    )  ,\
-                    HID_USAGE_MAX    ( 231                                    )  ,\
-                    HID_LOGICAL_MIN  ( 0                                      )  ,\
-                    HID_LOGICAL_MAX  ( 1                                      )  ,\
-                    HID_REPORT_COUNT ( 8                                      )  ,\
-                    HID_REPORT_SIZE  ( 1                                      )  ,\
-                    HID_INPUT        ( HID_DATA | HID_VARIABLE | HID_ABSOLUTE )  ,\
-                    /* 8 bit reserved */ \
-                    HID_REPORT_COUNT ( 1                                      )  ,\
-                    HID_REPORT_SIZE  ( 8                                      )  ,\
-                    HID_INPUT        ( HID_CONSTANT                           )  ,\
-                    /* 6-byte Keycodes */ \
-                    HID_USAGE_PAGE ( HID_USAGE_PAGE_KEYBOARD )                     ,\
-                        HID_USAGE_MIN    ( 0                                   )     ,\
-                        HID_USAGE_MAX    ( 255                                 )     ,\
-                        HID_LOGICAL_MIN  ( 0                                   )     ,\
-                        HID_LOGICAL_MAX  ( 255                                 )     ,\
-                        HID_REPORT_COUNT ( 6                                   )     ,\
-                        HID_REPORT_SIZE  ( 8                                   )     ,\
-                        HID_INPUT        ( HID_DATA | HID_ARRAY | HID_ABSOLUTE )     ,\
-                   HID_USAGE_PAGE  ( HID_USAGE_PAGE_LED                   )       , /*Attemptint to get led page until 24 that includes the telephony ones*/ \
-                       HID_USAGE_MIN    ( 1                                       ) ,\
-                       HID_USAGE_MAX    ( 5                                       ) ,\
-                       HID_REPORT_COUNT ( 5                                       ) ,\
-                       HID_REPORT_SIZE  ( 1                                       ) ,\
-                       HID_OUTPUT       ( HID_DATA | HID_VARIABLE | HID_ABSOLUTE  ) ,\
-                       /* led padding */ \
-                       HID_REPORT_COUNT ( 1                                       ) ,\
-                       HID_REPORT_SIZE  ( 3                                       ) ,\
-                       HID_OUTPUT       ( HID_CONSTANT                            ) ,\
-            HID_COLLECTION_END                                                      ,\
-
 uint8_t const desc_hid_report[] =
         {
-            0x06, 0x00, 0xFF, /* USAGE_PAGE (0xFF00)  */ \
+        0x06, 0x00, 0xFF, /* USAGE_PAGE (0xFF00)  */ \
+        HID_USAGE      ( HID_USAGE_DESKTOP_KEYBOARD )                    ,\
+            HID_COLLECTION ( HID_COLLECTION_APPLICATION )                    ,\
+                HID_REPORT_ID(0x01)                                                \
+                HID_USAGE_MIN    ( 0x40                                    )  ,\
+                HID_USAGE_MAX    ( 0x40                                    )  ,\
+                HID_LOGICAL_MIN  ( 0                                      )  ,\
+                0x26, 0xFF, 0x00, /* Logical Maximum (255) */ \
+                HID_REPORT_SIZE  ( 8                                      )  ,\
+                HID_REPORT_COUNT ( 64                                      )  ,\
+                HID_INPUT        ( HID_DATA)  ,\
+                HID_USAGE_MIN    ( 0x40                                    )  ,\
+                HID_USAGE_MAX    ( 0x40                                    )  ,\
+                HID_OUTPUT       ( HID_DATA ) ,\
+            HID_COLLECTION_END, \
+            TUD_HID_REPORT_DESC_KEYBOARD( HID_REPORT_ID(0x02) )
+        };
+
+        // Working descriptor
+        //uint8_t const desc_hid_report[] =
+        //{
+        //    0x06, 0x00, 0xFF, /* USAGE_PAGE (0xFF00)  */ \
             HID_USAGE      ( 0x01 )                    ,\
             HID_COLLECTION ( HID_COLLECTION_APPLICATION )                    ,\
                 HID_USAGE_MIN    ( 0x40                                    )  ,\
@@ -129,44 +107,20 @@ uint8_t const desc_hid_report[] =
                 HID_USAGE_MIN    ( 0x40                                    )  ,\
                 HID_USAGE_MAX    ( 0x40                                    )  ,\
                 HID_OUTPUT       ( HID_DATA ) ,\
-            HID_USAGE_PAGE ( HID_USAGE_PAGE_KEYBOARD )                     ,\
-                HID_USAGE_MIN    ( 224                                    )  ,\
-                HID_USAGE_MAX    ( 231                                    )  ,\
-                HID_LOGICAL_MIN  ( 0                                      )  ,\
-                HID_LOGICAL_MAX  ( 1                                      )  ,\
-                HID_REPORT_COUNT ( 8                                      )  ,\
-                HID_REPORT_SIZE  ( 1                                      )  ,\
             HID_COLLECTION_END ,\
-        }; //TODO: test keyboard press from button, try report id false (e.g. none)
-               //HID_USAGE_PAGE ( HID_USAGE_PAGE_KEYBOARD )                     ,\
-                    HID_USAGE_MIN    ( 224                                    )  ,\
-                    HID_USAGE_MAX    ( 231                                    )  ,\
-                    HID_LOGICAL_MIN  ( 0                                      )  ,\
-                    HID_LOGICAL_MAX  ( 1                                      )  ,\
-                    HID_REPORT_COUNT ( 8                                      )  ,\
-                    HID_REPORT_SIZE  ( 1                                      )  ,\
-                    HID_INPUT        ( HID_DATA | HID_VARIABLE | HID_ABSOLUTE )  ,\
-                    /* 8 bit reserved */ \
-                    HID_REPORT_COUNT ( 1                                      )  ,\
-                    HID_REPORT_SIZE  ( 8                                      )  ,\
-                    HID_INPUT        ( HID_CONSTANT                           )  ,\
-                    /* 6-byte Keycodes */ \
-                    HID_USAGE_PAGE ( HID_USAGE_PAGE_KEYBOARD )                     ,\
-                        HID_USAGE_MIN    ( 0                                   )     ,\
-                        HID_USAGE_MAX    ( 255                                 )     ,\
-                        HID_LOGICAL_MIN  ( 0                                   )     ,\
-                        HID_LOGICAL_MAX  ( 255                                 )     ,\
-                        HID_REPORT_COUNT ( 6                                   )     ,\
-                        HID_REPORT_SIZE  ( 8                                   )     ,\
-                        HID_INPUT        ( HID_DATA | HID_ARRAY | HID_ABSOLUTE )     ,\
-            HID_COLLECTION_END                                                      ,\
-};
+        };
+
 // Invoked when received GET HID REPORT DESCRIPTOR
 // Application return pointer to descriptor
 // Descriptor contents must exist long enough for transfer to complete
+// TODO: figure out what C:\bergt\appdata\local\microsoft\teampresenceaddin\Uc.tlb can do
+// check: https://docs.microsoft.com/en-us/microsoftteams/troubleshoot/teams-im-presence/issues-with-presence-in-outlook?tabs=64
+//check: http://web.archive.org/web/20190424133933/https://blogs.technet.microsoft.com/lync/2008/05/13/ucc-api-what-is-it-and-how-does-one-write-an-application-using-it/
+//check: https://docs.microsoft.com/en-us/lync/schema/programming-with-enhanced-presence
+// and https://docs.microsoft.com/en-us/lync/schema/using-unified-communications-apis
 uint8_t const *tud_hid_descriptor_report_cb(void) {
     printf("DEBUG: tud_hid_descriptor_report_cb triggered\n");
-    return desc_hid_report;
+        return desc_hid_report;
 }
 
 //--------------------------------------------------------------------+
